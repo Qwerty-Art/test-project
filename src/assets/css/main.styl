@@ -1,0 +1,285 @@
+.breadcrumb
+  display flex
+  margin-top 34px
+  +min(mobile)
+    margin-top 78px
+  +min(large)
+    margin-top 82px
+
+.breadcrumb-item
+  font-weight: 300
+  font-size: 12px
+  line-height: 14px
+  color #303030
+  +min(mobile)
+    font-size: 16px
+    line-height: 19px
+  &.-no-link
+    font-weight 600
+  &:not(.-no-link)
+    position relative
+    padding-right 14px
+    +min(mobile)
+      padding-right 18px
+    &::before
+      content '-'
+      position absolute
+      top 50%
+      right 4px
+      transform translate(0, -50%)
+
+.page-title
+  margin-top: 58px
+  +min(mobile)
+    margin-top 62px
+
+.page-btn-menu
+  display none
+  +min(large)
+    position fixed
+    top: calc(50% - 127px)
+    left: 45px
+    transform translate(0, -50%)
+    width 40px
+    height 40px
+    display flex
+    align-items center
+    justify-content center
+  svg 
+    width 31px
+    height 7px
+
+.page-content
+  padding-top 30px
+  padding-bottom 100px
+  +min(mobile)
+    padding-top 0
+  +min(large)
+    padding-bottom 158px
+
+.contacts-form-descr
+  +min(mobile)
+    max-width 66%
+  +min(large)
+    max-width 46%
+  a
+    font-weight 700
+
+.contacts-form
+  display grid
+  grid-row-gap 35px
+  margin-top 80px
+  max-width 756px
+  +min(mobile)
+    margin-top 100px
+    grid-row-gap 0
+  +min(large)
+    margin-top 120px
+    position relative
+      
+  .wrap-check
+    margin-top 32px
+
+.wrap-field
+.group-field
+  display grid
+  grid-row-gap 60px
+
+.group-field
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  grid-column-gap 22px
+  +min(mobile)
+    grid-template-columns: 54% 43%
+  +min(large)
+    grid-template-columns: 58% 37%
+
+.field
+  position relative
+  input
+  textarea
+    border-bottom 1px solid #E2E2E2
+    width 100%
+    &:focus
+    &:hover
+    &:valid
+      & + label
+        top -22px
+        font-size 14px
+        line-height 16px
+        +min(large)
+          font-size 16px
+          line-height 19px
+          top -26px
+  input
+    height 35px
+  textarea
+    height 86px
+    display block
+    resize: none
+    +min(mobile)
+      height 91px
+  label
+    color #ccc
+    font-weight: 300
+    font-size: 22px
+    line-height: 26px
+    position absolute
+    left 0
+    top 0
+    pointer-events: none
+    transition $trans
+    +min(mobile)
+      font-size: 26px
+      line-height: 31px
+    span
+      color: #FF0000
+
+.custom-check
+  display flex
+  +min(mobile)
+    align-items center
+  [type="checkbox"]
+    opacity 0
+    position absolute
+    z-index -1
+    visibility hidden
+    &:checked
+      & ~ .shadow-check::before
+        opacity 1
+
+.shadow-check
+  display inline-block
+  max-width 30px
+  width 100%
+  height 30px
+  border: 1px solid #D3D3D3
+  border-radius: 50%
+  position relative
+  flex 1 0 auto
+  &::before
+    content ''
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    border-radius: 50%
+    background-color #388AF3
+    opacity 0
+    width 10px
+    height 10px
+
+.custom-check-text
+  margin-left 20px
+  font-weight: 400
+  font-size: 18px
+  line-height: 27px
+  color #6D6D6D
+  font-family: 'Circe', 'Arial', 'Helvetica',  sans-serif
+  a
+    color #388AF3
+
+.btn-form
+  padding 0
+  background-color transparent
+  width 216px
+  height 216px
+  position relative
+  border-radius: 50%
+  display flex
+  align-items center
+  justify-content center
+  font-size: 18px
+  line-height: 20px
+  font-weight 800
+  color #fff
+  +min(mobile)
+    margin-top 60px
+    width 227px
+    height 227px
+    font-size: 20px
+    line-height: 20px
+    letter-spacing: 0.02em
+  +min(large)
+    position absolute
+    right: -169px
+    top: calc(50% - 11px)
+    transform: translate(100%, -50%)
+    margin-top: 0
+  &:hover
+    .btn-form-bg
+      &::after
+        opacity 1
+    .-default
+      transform translate(0, 0)
+      color #fff
+    i
+      transform translate(23px, -55px) scale(1.7)
+  &.-sent
+    .btn-form-bg
+      &::after
+        opacity 1
+    i
+      transition 1s
+      transform: translate(83px, -105px) scale(0);
+  i
+    position: absolute
+    top: 83px
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 2
+    width: 55px
+    transition $trans
+  .-default
+    opacity 1
+    visibility visible
+    transition $trans
+    color #388AF3
+    position relative
+    z-index 2
+    transform translate(0, 27px)
+    transition $trans
+  .-finish
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    z-index 2
+    opacity 0
+    visibility hidden
+    transition $trans
+    &.-show
+      visibility visible
+      opacity 1
+
+.btn-form-bg
+  overflow: hidden
+  position absolute
+  top 50%
+  left 50%
+  width 100%
+  height 100%
+  transform translate(-50%, -50%)
+  border-radius: 50%
+  background-color #388AF3
+  background linear-gradient(90deg, #388AF3, #A483E2)
+  z-index 1
+  &::before
+  &::after
+    content ''
+    position absolute
+    top 50%
+    left 50%
+    width calc(100% - 10px)
+    height calc(100% - 10px)
+    transform translate(-50%, -50%)
+    border-radius: 50%
+    background-color #fff
+  &::after
+    width 100%
+    height 100%
+    background-color #388AF3
+    opacity 0
+    transition $trans
+
+
+  

@@ -1,0 +1,126 @@
+.footer
+  background linear-gradient(93.29deg, #388AF3 21.04%, #A483E2 88.77%)
+  color #fff
+  a
+    color #fff
+
+.footer-top
+  +min(large)
+    display grid
+    justify-content space-between
+    grid-template-columns 20% 895px
+
+.footer-content
+  padding-top 49px
+  padding-bottom 22px
+  +min(mobile)
+    padding-top 35px
+    padding-bottom 26px
+  +min(large)
+    padding-top 40px
+    padding-bottom 20px
+
+.footer-info
+  margin-top 44px
+  position relative
+  +min(mobile)
+    margin-top 54px
+    padding-right 88px
+  +min(large)
+    margin-top 0
+    padding-right 58px
+    padding-top 10px
+
+.footer-menu
+  display grid
+  grid-row-gap 50px
+  +min(mobile)
+    grid-template-columns minmax(200px, 30%) minmax(170px, 30%) minmax(220px, 30%)
+    justify-content space-between
+    grid-column-gap 20px
+  +min(large)
+    grid-template-columns minmax(200px, 30%) minmax(170px, 30%) minmax(220px, 20%)
+
+.footer-menu-title
+  font-weight: 700
+  font-size: 25px
+  line-height: 30px
+  position relative
+  padding-right 20px
+  display inline-block
+  &::before
+    content ''
+    position absolute
+    top 50%
+    right 0
+    transform translate(0, -50%)
+    background-color #fff
+    border-radius: 50%
+    width 9px
+    height 9px
+
+.footer-menu-item
+  ul
+    margin 0
+    list-style none
+    display grid
+    grid-row-gap 15px
+    margin-top 19px
+    max-width 56%
+    +min(mobile)
+      margin-top 22px
+      grid-row-gap 20px
+      max-width 180px
+    +min(large)
+      margin-top 28px
+  li
+    padding 0
+    font-weight: 600
+    font-size: 14px
+    line-height: 17px
+  &.-contacts
+    a[href^=tel]
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+
+.footer-soc
+  position absolute
+  bottom 0
+  right 66px
+  display grid
+  grid-row-gap 20px
+  +min(mobile)
+    bottom auto
+    top: 0
+    right: 28px
+  +min(large)
+    top: 69px
+    right: 0
+  img
+    display block
+
+.footer-bottom
+  margin-top 57px
+  display flex
+  flex-direction: column-reverse
+  grid-row-gap 10px
+  font-weight: 600
+  font-size: 14px
+  line-height: 17px
+  +min(mobile)
+    flex-direction row
+    justify-content space-between
+    margin-top 125px
+    padding-right 103px
+  +min(large)
+    margin-top 48px
+    padding-right 70px
+
+.link-load
+  display inline-flex
+  align-items center
+  svg
+    width 12px
+    height 12px
+    margin-left 12px
