@@ -11,19 +11,10 @@
     <form @submit.prevent="onSubmit" class="contacts-form">
       <div class="wrap-field">
         <div class="group-field">
-          <div class="field">
-            <input type="text" v-model="contacts.name" required />
-            <label>Ваше имя <span>*</span></label>
-          </div>
-          <div class="field">
-            <input type="text" v-model="contacts.email" required />
-            <label>Ваш E-Mail <span>*</span></label>
-          </div>
+           <AppInput @onInput="changeName" :required="true" >Ваше имя</AppInput>
+           <AppInput @onInput="changeEmail" :required="true" >Ваш E-Mail</AppInput>
         </div>
-        <div class="field -textare">
-          <textarea v-model="contacts.comment" required></textarea>
-          <label>Комментарий <span>*</span></label>
-        </div>
+         <AppTextarea @onInput="changeComment" :required="true" >Комментарий</AppTextarea>
       </div>
       <div class="wrap-check">
         <label class="custom-check">
@@ -50,13 +41,23 @@
 </template>
 
 <script>
+import AppInput from '@/components/UI/Input.vue'
+import AppTextarea from '@/components/UI/Textarea.vue'
 export default {
+  components: {
+  AppInput,
+  AppTextarea
+  },
   data() {
     return {
       contacts: {
         name: "",
         email: "",
         comment: "",
+      },
+      pageInfo: {
+        page: 'Контакты',
+        title: 'Мы рядом'
       },
       isSent: false
     };
@@ -66,6 +67,18 @@ export default {
       console.log(this.contacts);
       this.isSent = true
     },
-  },  
+    changeName(name) {
+      this.contacts.name = name
+    },
+    changeEmail(email) {
+      this.contacts.email = email
+    },
+    changeComment(text) {
+      this.contacts.comment = text
+    }
+  }, 
+  mounted() {
+    this.$emit('pageInfo',this.pageInfo)
+  },
 };
 </script>
